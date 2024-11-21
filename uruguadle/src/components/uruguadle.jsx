@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import wordsData from "../words.json";
+import Wordle from "./wordle.jsx"
 import "./css/uruguadle.css";
 
 const WordleGame = () => {
@@ -13,7 +14,8 @@ const WordleGame = () => {
 
   return (
         <div>
-            <p>Word: {targetWord}</p>
+           <Wordle solution={targetWord}/>
+           <h2> La palabra es={targetWord}</h2>
         </div>
       )}
 
