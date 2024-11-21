@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-import Keyboard from './components/keyboard.jsx'
+// import Keyboard from './components/keyboard.jsx'
 import WordleGame from './components/uruguadle.jsx'
 export default function App() {
   return (
@@ -9,7 +9,6 @@ export default function App() {
       <div className='game-screen'>
         <WordleGame/>
       </div>
-      <Keyboard />
     </>
   )
 }
