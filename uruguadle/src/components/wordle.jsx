@@ -17,8 +17,6 @@ export default function Wordle (props) {
 
     return (
         <div>
-            <h2> La palabra es={props.solution}</h2>
-           <h3>Tu guess es={currentGuess}</h3>
            <Grid currentGuess={currentGuess} guesses={guesses} turn={turn} lenrow={props.solution}/>
         </div>
     )

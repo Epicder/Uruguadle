@@ -1,21 +1,46 @@
-import { setState, useState } from 'react'
+import { useState, useEffect } from 'react'
 
 // hook con las funciones de intentos y storage de las palabras
-const useWorlde = (targetWord) => {
+const useWordle = (targetWord) => {
     const [turn, setTurn] = useState(0) // Maneja cada turno del jugador
     const [currentGuess, setCurrentGuess] = useState('') // Se añade una letra a currentGuess cada vez que el usuario toca una letra
-    const [guesses, setGuesses] = useState([...Array(targetWord.length)]) //Guesses pasados del usuario, pero formateados como array para los colores
     const [history, setHistory] = useState([]) //Guesses pasados del usuario pero como str, para checkear que no vuelva a poner la misma palabra
     const [isCorrect, setIsCorrect] = useState(false)// Manejo de victoria de la partida
-    
-    
+    const [guesses, setGuesses] = useState([]) //Guesses pasados del usuario, pero formateados como array para los colores
+
+
+    // Seniors viendo que uso más de 2 else if: MIS OJOSSSSSS (joke, es para que sea más legible)
+    useEffect(() => {
+        let numTries;
+        if (targetWord.length === 2) {
+            numTries = 3;
+        } else if (targetWord.length === 3) {
+            numTries = 4;
+        } else if (targetWord.length === 4) {
+            numTries = 5;
+        } else if (targetWord.length === 5) {
+            numTries = 6;
+        } else if (targetWord.length === 6) {
+            numTries = 6;
+        } else if (targetWord.length === 7) {
+            numTries = 7;
+        } else if (targetWord.length === 8) {
+            numTries = 7;
+        } else if (targetWord.length === 9) {
+            numTries = 7;
+        } else if (targetWord.length === 10) {
+            numTries = 7;
+        }
+        setGuesses([...Array(numTries)]);
+    }, [targetWord]);
+
     // Formatear el guess del user a un array
     const formatGuess = () => {
         let solutionArray = [...targetWord];
         let formattedGuess = [...currentGuess].map((l) => {
             return { key: l, color: 'grey' };
         });
-    
+
         // encontramos las coincidencias exactas (verde)
         formattedGuess.forEach((l, i) => {
             if (solutionArray[i] === l.key) {
@@ -23,7 +48,7 @@ const useWorlde = (targetWord) => {
                 solutionArray[i] = null;
             }
         });
-    
+
         // encontramos las coincidencias solo de letra, no de pos (amarillo)
         formattedGuess.forEach((l, i) => {
             if (solutionArray.includes(l.key) && l.color !== 'green') {
@@ -31,7 +56,7 @@ const useWorlde = (targetWord) => {
                 solutionArray[solutionArray.indexOf(l.key)] = null;
             }
         });
-    
+
         return formattedGuess;
     };
 
@@ -83,16 +108,10 @@ const useWorlde = (targetWord) => {
                     return (prev + props.key)
                 })
             }
-            
         }
     }
 
-
-    return ({turn, currentGuess, guesses, isCorrect, handleKey})
+    return { turn, currentGuess, guesses, isCorrect, handleKey }
 }
 
-
-
-
-
-export default useWorlde
+export default useWordle
