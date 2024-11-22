@@ -7,6 +7,7 @@ const useWordle = (targetWord) => {
     const [history, setHistory] = useState([]) //Guesses pasados del usuario pero como str, para checkear que no vuelva a poner la misma palabra
     const [isCorrect, setIsCorrect] = useState(false)// Manejo de victoria de la partida
     const [guesses, setGuesses] = useState([]) //Guesses pasados del usuario, pero formateados como array para los colores
+    const [usedKeys, setUsedKeys] = useState({}) // {a: 'verde', b: 'amarillo', c:'gris'}
 
 
     // Seniors viendo que uso más de 2 else if: MIS OJOSSSSSS (joke, es para que sea más legible)
@@ -76,6 +77,30 @@ const useWordle = (targetWord) => {
         setTurn((prevTurn) => {
             return prevTurn + 1
         })
+
+        setUsedKeys((prevUsedKeys) => {
+            let newKeys = {...prevUsedKeys}
+
+            formatted.forEach((l) => {
+                const currentColor = newKeys[l.key]
+
+                if (l.color === 'green') {
+                    newKeys[l.key] = 'green'
+                    return
+                }
+                if (l.color === 'yellow' && currentColor !== 'green') {
+                    newKeys[l.key] = 'yellow'
+                    return
+                }
+                if (l.color === 'grey' && currentColor !== 'green' && currentColor !== 'yellow') {
+                    newKeys[l.key] = 'grey'
+                    return
+                }
+
+                
+            })
+            return newKeys
+        })
         setCurrentGuess('')
     }
 
@@ -111,7 +136,7 @@ const useWordle = (targetWord) => {
         }
     }
 
-    return { turn, currentGuess, guesses, isCorrect, handleKey }
+    return { turn, currentGuess, guesses, isCorrect, usedKeys, handleKey }
 }
 
 export default useWordle

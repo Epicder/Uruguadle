@@ -1,0 +1,71 @@
+.keypad {
+  max-width: 550px;
+  margin: 20px auto;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.keypad > div {
+  margin: 5px;
+  width: 45px;
+  height: 55px;
+  background-color: #506374;
+  display: inline-block;
+  border-radius: 6px;
+  line-height: 50px;
+  color: rgb(218, 218, 218);
+  cursor: pointer;
+}
+
+.keypad > div.green {
+  background: #5ac85a;
+  color: #fff;
+  transition: all 0.3s ease-in;
+}
+.keypad > div.yellow {
+  background: #e2cc68;
+  color: #fff;
+  transition: all 0.3s ease-in;
+}
+.keypad > div.grey {
+  background: #a1a1a1;
+  color: #fff;
+  transition: all 0.3s ease-in;
+}
+
+@keyframes flip {
+  0% {
+    transform: rotateX(0);
+    background: #fff;
+    border-color: #333;
+  }
+  45% {
+    transform: rotateX(90deg);
+    background: white;
+    border-color: #333;
+  }
+  55% {
+    transform: rotateX(90deg);
+    background: var(--background);
+    border-color: var(--border-color);
+  }
+  100% {
+    transform: rotateX(0deg);
+    background: var(--background);
+    border-color: var(--border-color);
+    color: #eee;
+  }
+}
+
+@keyframes bounce {
+  0% { 
+    transform: scale(1);
+    border-color: #ddd;
+  }
+  50% { 
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+    border-color: #333;
+  }
+}

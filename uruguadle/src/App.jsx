@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import './App.css'
-import Keyboard from './components/keyboard.jsx'
 import WordleGame from './components/uruguadle.jsx'
 import HowToPlay from './components/howtoplay.jsx'
 
@@ -19,10 +18,8 @@ export default function App() {
     <h1 className='title'><span className='uru'>Uru</span><span className='guay'>gua</span><span className='dle'>dle 🥩🍷</span></h1>
     <HowToPlay/>
     </div>
-    
       <div className='game-screen'>
         <WordleGame/>
-        <Keyboard/>
       </div>
     </>
   )

@@ -1,20 +1,26 @@
 import React, { useState, useEffect } from "react";
 import wordsData from "../words.json";
-import Wordle from "./wordle.jsx"
+import Wordle from "./wordle.jsx";
 
 const WordleGame = () => {
   const [words, setWords] = useState([]);
   const [targetWord, setTargetWord] = useState("");
+  const [targetDesc, setTargetDesc] = useState("");
 
   useEffect(() => {
-    setWords(wordsData.words);
-    setTargetWord(wordsData.words[Math.floor(Math.random() * wordsData.words.length)]);
+    const wordList = wordsData.words;
+    setWords(wordList);
+    const randomWord = wordList[Math.floor(Math.random() * wordList.length)];
+    setTargetWord(randomWord.word);
+    setTargetDesc(randomWord.desc);
   }, []);
 
   return (
-        <div>
-           <Wordle solution={targetWord}/>
-        </div>
-      )}
+    <div>
+      <h2>SOLUCIÓN: {targetWord}</h2>
+      <Wordle solution={targetWord} description={targetDesc} />
+    </div>
+  );
+};
 
 export default WordleGame;

@@ -1,0 +1,25 @@
+.modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(194, 194, 194, 0.459);
+  z-index: 100;
+}
+
+.modal h1 {
+  color: #FFD100;
+}
+
+.modal-text {
+  background-color: #1a2f4b;
+  width: 28%;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
