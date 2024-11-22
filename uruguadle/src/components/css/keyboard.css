@@ -6,6 +6,7 @@
     margin: 20px auto;
     max-width: 400px;
     padding: 10px;
+    padding-top: 60px;
 }
 
 
@@ -16,7 +17,7 @@
 }
 
 .special-key {
-    width: 60px; 
+    width: 90px;
     font-weight: bold;
     border: 2px solid #ccc;
 }

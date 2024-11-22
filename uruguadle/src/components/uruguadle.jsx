@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import wordsData from "../words.json";
 import Wordle from "./wordle.jsx"
-import "./css/uruguadle.css";
 
 const WordleGame = () => {
   const [words, setWords] = useState([]);
