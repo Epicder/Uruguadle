@@ -4,7 +4,9 @@ import './css/keypad.css'
 
 export default function Keypad(props) {
    
-    const letters = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'ñ', 'z', 'x', 'c', 'v', 'b', 'n', 'm']
+    const letters = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p',
+                    'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'ñ',
+                    'z', 'x', 'c', 'v', 'b', 'n', 'm']
     return (
         <div className='keypad'>
             {letters && letters.map((l) => {

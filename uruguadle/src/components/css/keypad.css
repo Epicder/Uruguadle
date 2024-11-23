@@ -3,11 +3,27 @@
   margin: 20px auto;
   text-transform: uppercase;
   font-weight: bold;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.keypad > div {
+  margin: 5px;
+  width: 45px;
+  height: 55px;
+  background-color: #506374;
+  display: inline-block;
+  border-radius: 6px;
+  line-height: 50px;
+  color: rgb(218, 218, 218);
+  cursor: pointer;
+  flex: 0 0 auto;
 }
 .keypad-action {
   background: #e2cc68;
   color: #333;
-  border: 2px solid #e2cc68;
+  border: 1px solid #e2cc68;
   border-radius: 6px;
   cursor: pointer;
   transition: all 0.3s ease-in;
@@ -81,19 +97,13 @@
 }
 
 /* Responsive styles */
-@media (max-width: 768px) {
-  .keypad > div {
-    width: 35px;
-    height: 45px;
-    line-height: 40px;
-  }
-}
-
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   .keypad {
-    max-width: 490px;
+    max-width: 480px;
     margin-top: 10px;
-
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
   }
   .keypad > div {
     width: 40px;
@@ -102,6 +112,26 @@
     margin: 2px;
     margin-bottom: 15px;
     font-size: 1.1em;
+    flex: 0 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .keypad {
+    max-width: 370px;
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .keypad > div {
+    width: 30px;
+    height: 40px;
+    line-height: 40px;
+    margin: 2px;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    flex: 0 0 auto;
   }
 
   .title-container {
