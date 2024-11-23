@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 
+
 // hook con las funciones de intentos y storage de las palabras
 const useWordle = (targetWord) => {
     const [turn, setTurn] = useState(0) // Maneja cada turno del jugador
@@ -8,6 +9,17 @@ const useWordle = (targetWord) => {
     const [isCorrect, setIsCorrect] = useState(false)// Manejo de victoria de la partida
     const [guesses, setGuesses] = useState([]) //Guesses pasados del usuario, pero formateados como array para los colores
     const [usedKeys, setUsedKeys] = useState({}) // {a: 'verde', b: 'amarillo', c:'gris'}
+    const [errorMessage, setErrorMessage] = useState(''); // Mensaje de error si el usuario pone una palabra que no es válida
+
+    const showError = (message) => {
+        setErrorMessage(message);
+        console.log("entré a showError")
+        console.log(errorMessage)
+
+        setTimeout(() => {
+            setErrorMessage('');
+        }, 2000);
+    }
 
     let numTries = 0
     // Seniors viendo que uso más de 2 else if: MIS OJOSSSSSS (joke, es para que sea más legible)
@@ -104,16 +116,17 @@ const useWordle = (targetWord) => {
     const handleKey = (props) => {
         if (props.key === 'Enter') {
             if (turn > targetWord.length) {
-                console.log("te quedaste sin turnos")
+                showError('Te quedaste sin turnos');
                 return
             }
             if (history.includes(currentGuess)) {
-                console.log("Ya intentaste esa palabra")
-                return
+                showError('Ya usaste esa palabra gil');
+                console.log(setErrorMessage)
+                return 
             }
             if (currentGuess.length !== targetWord.length) {
-               console.log("La palabra no matchea con los caracteres")
-               return
+                showError('La palabra no encaja, gil');
+                return 
             }
             const formatted = formatGuess()
             addNewGuess(formatted)
@@ -133,7 +146,7 @@ const useWordle = (targetWord) => {
         }
     }
 
-    return { turn, currentGuess, guesses, isCorrect, usedKeys, handleKey }
+    return { turn, currentGuess, guesses, isCorrect, usedKeys, handleKey, errorMessage }
 }
 
 export default useWordle

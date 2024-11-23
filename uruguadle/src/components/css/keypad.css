@@ -4,7 +4,17 @@
   text-transform: uppercase;
   font-weight: bold;
 }
-.keypad > div {
+.keypad-action {
+  background: #e2cc68;
+  color: #333;
+  border: 2px solid #e2cc68;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease-in;
+
+}
+
+.keypad > div, .keypad-action {
   margin: 5px;
   width: 45px;
   height: 55px;
