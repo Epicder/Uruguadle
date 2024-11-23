@@ -21,8 +21,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 2rem;
-
 }
 
 p {
@@ -72,7 +70,7 @@ i {
   border: none;
   padding: 0;
   border-radius: 50%;
-  margin-top: -2rem;
+  margin-top: -1rem;
   margin-right: 2rem;
 }
 
