@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 
-
-
-
-const HowToPlay = () => {
+const HowToPlay = ({ onClose }) => {
     const [popup, setPopup] = useState(true);
 
     const handleClick = () => {
@@ -19,11 +16,12 @@ const HowToPlay = () => {
                 <h3>Cómo jugar</h3>
                 <p>Tenés varios intentos para adivinar una palabra oculta al azar.
                 Cada intento te dirá cuántas letras acertaste y cuántas están en la posición correcta.
-                El juego te indicará con un código de color los aciertos de cada letra y si están en la posición correcta.</p>
+                </p>
+                <p className='parentesis'>(Si la palabra al azar se te complica, podés reiniciar la página para una nueva)</p>
                 <br/>
                 <br />
                 <div className="grid">
-                    <div className="row">
+                    <div className="row-howtoplay">
                         <div className="green">B</div>
                         <div>O</div>
                         <div>T</div>
@@ -34,9 +32,8 @@ const HowToPlay = () => {
                 </div>
                 <p>Verde significa que la letra está en la palabra oculta y en la posición correcta.</p>
                 <br />
-                <br />
                 <div className="grid">
-                    <div className="row">
+                    <div className="row-howtoplay">
                         <div>P</div>
                         <div className="yellow">I</div>
                         <div>L</div>
@@ -47,9 +44,8 @@ const HowToPlay = () => {
                 </div>
                 <p>Amarillo significa que la letra está en la palabra oculta pero en una posición incorrecta.</p>
                 <br />
-                <br />
                 <div className="grid">
-                    <div className="row">
+                    <div className="row-howtoplay">
                         <div>G</div>
                         <div>U</div>
                         <div className="grey">A</div>
@@ -60,13 +56,10 @@ const HowToPlay = () => {
                 </div>
                 <p>La palabra oculta no contiene la letra.</p>
                 <br />
-                <br />
                 <p>La palabra al azar está relacionada con la cultura uruguaya,
                 puede ser comida, una bebida, un lugar, una expresión, una marca, etc.</p>
                 <br />
-                <br />
-                <button className="play-btn" onClick={handleClick}>A juga'</button>
-                <br />
+                <button onClick={onClose}>A juga'</button>
                 <br />
                 <br />
                 <a href="https://github.com/Epicder/Uruguadle" target="_blank"><i>Repositorio del juego</i></a>
@@ -76,6 +69,5 @@ const HowToPlay = () => {
         </div>
 );   
 }
-
 
 export default HowToPlay;

@@ -17,7 +17,6 @@ const WordleGame = () => {
 
   return (
     <div>
-      <h2>SOLUCIÓN: {targetWord}</h2>
       <Wordle solution={targetWord} description={targetDesc} />
     </div>
   );

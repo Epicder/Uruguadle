@@ -14,15 +14,11 @@ export default function Wordle (props) {
             setTimeout(() => {
                 setShowModal(true)
             }
-            , 2000)
+            , 1800)
             window.removeEventListener('keyup', handleKey)
         }
         if (turn > props.solution.length && !isCorrect) {
-            setTimeout(() => {
-                setShowModal(true)
-            }
-            , 2000)
-
+            setShowModal(true)
             window.removeEventListener('keyup', handleKey)
         }
 

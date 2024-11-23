@@ -7,7 +7,6 @@ body {
 h1 {
   font-size: 2rem;
   padding: 20px 0;
-  border-bottom: 1px solid #eee;
   margin: 0 0 30px 0;
   color: #333;
 }
@@ -68,6 +67,57 @@ h1 {
   animation: bounce 0.2s ease-in-out forwards;
 }
 
+.row-howtoplay {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+.row-howtoplay > div {
+  display: block;
+  width: 45px;
+  height: 45px;
+  border: 1px solid #bbb;
+  margin: 4px;
+  text-align: center;
+  line-height: 46px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.5em;
+  border-radius: 7px;
+
+}
+
+.row-howtoplay > div.green {
+  --background: #5ac85a;
+  --border-color: #5ac85a;
+  animation: flip 0.5s ease forwards;
+}
+.row-howtoplay > div.grey {
+  --background: #a1a1a1;
+  --border-color: #a1a1a1;
+  animation: flip 0.6s ease forwards;
+}
+.row-howtoplay > div.yellow {
+  --background: #e2cc68;
+  --border-color: #e2cc68;
+  animation: flip 0.5s ease forwards;
+}
+.row-howtoplay > div:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.row-howtoplay > div:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.row-howtoplay > div:nth-child(4) {
+  animation-delay: 0.5s;
+}
+.row-howtoplay > div:nth-child(5) {
+  animation-delay: 0.7s;
+}
+.row-howtoplay.current > div.filled {
+  animation: bounce 0.2s ease-in-out forwards;
+}
+
 /* keyframe animations */
 @keyframes flip {
   0% {
@@ -104,5 +154,35 @@ h1 {
   100% {
     transform: scale(1);
     border-color: #333;
+  }
+}
+
+@media (max-width: 768px) {
+  .row > div {
+    width: 60px;
+    height: 60px;
+    line-height: 45px;
+    font-size: 2em;
+  }
+}
+
+@media (max-width: 480px) {
+  .row {
+    margin: 0 auto;
+    max-width: 400px;
+  }
+  
+  .row > div {
+    width: 55px;
+    height: 55px;
+    line-height: 50px;
+    font-size: 1.5em;
+  }
+}
+
+@media (max-width: 370px) {
+  .row {
+    margin: 0 auto;
+    max-width: 330px;
   }
 }
