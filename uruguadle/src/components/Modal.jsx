@@ -12,7 +12,7 @@ export default function Modal(props) {
       {props.isCorrect && (
         <div className='modal-text'>
           <h1>Correcto, sos el/la más capito!</h1>
-          <p>Te llevó {props.turn} turnos encontrar la palabra - <span className='word'>{props.solution}</span> -</p>
+          <p>Te llevó {props.turn} turnos encontrar la palabra <br /><br /> - <span className='word'>{props.solution}</span> -</p>
           <br />
           <p>Significado de la palabra: "<strong>{props.description}</strong>"</p>
           <br />
@@ -23,7 +23,7 @@ export default function Modal(props) {
       {!props.isCorrect && (
         <div className='modal-text'>
           <h1>Mal ahí, ñeri...'</h1>
-          <p>La palabra era - <span className='word'>{props.solution}</span> -</p>
+          <p>La palabra era <br /><br />- <span className='word'>{props.solution}</span> -</p>
           <br />
           <p>Significado de la palabra: "<strong>{props.description}</strong>"</p>
           <br />

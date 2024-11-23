@@ -6,24 +6,31 @@ import Modal from "./Modal"
 import { useState } from "react"
 
 export default function Wordle (props) {
-    const {currentGuess, handleKey, guesses, isCorrect, turn, usedKeys} = useWorlde(props.solution)
+    const {currentGuess, handleKey, guesses, isCorrect, turn, usedKeys } = useWorlde(props.solution)
     const [showModal, setShowModal] = useState(false)
+
+    const solLength = props.solution.length
+    console.log(solLength)
+    console.log(turn)
     useEffect(() => {
-        window.addEventListener('keyup', handleKey)
+        window.addEventListener('keyup', handleKey);
+
         if (isCorrect) {
-            setTimeout(() => {
-                setShowModal(true)
-            }
-            , 1800)
-            window.removeEventListener('keyup', handleKey)
-        }
-        if (turn > props.solution.length && !isCorrect) {
-            setShowModal(true)
-            window.removeEventListener('keyup', handleKey)
+            setTimeout(() => setShowModal(true), 1800);
+            window.removeEventListener('keyup', handleKey);
         }
 
-        return () => window.removeEventListener('keyup', handleKey)
-    }, [handleKey, isCorrect])
+        if (turn > solLength && !isCorrect) {
+            console.log("Perdiste");
+            setShowModal(true);
+            window.removeEventListener('keyup', handleKey);
+        }
+        
+    
+        return () => window.removeEventListener('keyup', handleKey);
+    }, [handleKey, isCorrect, turn, solLength]);
+    
+    
      
     useEffect(() => {
     }), [guesses, isCorrect, turn]

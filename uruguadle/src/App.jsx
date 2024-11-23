@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import WordleGame from './components/uruguadle.jsx'
 import HowToPlay from './components/howtoplay.jsx'
-import { motion } from 'framer-motion'
+import { motion, transform } from 'framer-motion'
 import Info from './assets/info.svg'
 
 export default function App() {
@@ -18,9 +18,9 @@ export default function App() {
 
   const animation = {
     scale: [1, 1.15, 1.15, 1, 1],
-    borderRadius: ["20%", "20%", "50%", "50%", "20%"],
+    
     transition: {
-      duration: 0.6,
+      duration: 1,
       ease: "easeInOut",
     },
   };

@@ -9,10 +9,10 @@ const useWordle = (targetWord) => {
     const [guesses, setGuesses] = useState([]) //Guesses pasados del usuario, pero formateados como array para los colores
     const [usedKeys, setUsedKeys] = useState({}) // {a: 'verde', b: 'amarillo', c:'gris'}
 
-
+    let numTries = 0
     // Seniors viendo que uso más de 2 else if: MIS OJOSSSSSS (joke, es para que sea más legible)
     useEffect(() => {
-        let numTries;
+        
         if (targetWord.length === 2) {
             numTries = 3;
         } else if (targetWord.length === 3) {
@@ -22,16 +22,12 @@ const useWordle = (targetWord) => {
         } else if (targetWord.length === 5) {
             numTries = 6;
         } else if (targetWord.length === 6) {
-            numTries = 6;
+            numTries = 7;
+            
         } else if (targetWord.length === 7) {
-            numTries = 7;
-        } else if (targetWord.length === 8) {
-            numTries = 7;
-        } else if (targetWord.length === 9) {
-            numTries = 7;
-        } else if (targetWord.length === 10) {
-            numTries = 7;
+            numTries = 8;
         }
+        
         setGuesses([...Array(numTries)]);
     }, [targetWord]);
 
@@ -128,10 +124,11 @@ const useWordle = (targetWord) => {
             }))
         }
         if (/^[A-Za-zñÑ]$/.test(props.key)) {
+            const key = props.key.toLowerCase();
             if (currentGuess.length < targetWord.length) {
                 setCurrentGuess((prev) => {
-                    return (prev + props.key)
-                })
+                    return prev + key;
+                });
             }
         }
     }

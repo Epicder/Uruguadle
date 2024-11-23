@@ -46,10 +46,12 @@ p {
 
 .mini-popup {
   background-color: #1a2f4b;
-  width: 28%;
+  width: fit-content;
+  max-width: 30%;
   padding: 1rem;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
 }
 
 i {
@@ -77,4 +79,19 @@ i {
 .parentesis {
   font-size: 0.8rem;
   font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .mini-popup {
+    max-width: 50%;
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .mini-popup {
+    max-width: 70%; 
+    padding: 2rem; 
+    font-size: 0.9rem;
+  }
 }
